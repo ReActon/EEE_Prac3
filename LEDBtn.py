@@ -4,9 +4,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 
-def main():
-
-	
+def main():	
 
 	#configure mode for chosen pin values
 	GPIO.setmode(GPIO.BCM)
@@ -17,9 +15,14 @@ def main():
 	endPoint = 4
 	#a note of which GPIO pin belongs to the LED
 	LEDPin = 22
-	
-	GPIO.setup(LEDPin, GPIO.OUT)
+        #a note of which GPIO pin the button is in
+        buttonPin = 5	
 
+	GPIO.setup(LEDPin, GPIO.OUT)
+        GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+        buttonPress = False
+        ledState = False
 
 	while currentNum < endPoint:
 		GPIO.output(LEDPin, True)
