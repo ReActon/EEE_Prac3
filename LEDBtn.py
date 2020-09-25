@@ -23,13 +23,15 @@ def main():
 
         buttonPress = False
         ledState = False
-
-	while currentNum < endPoint:
-		GPIO.output(LEDPin, True)
-		sleep(2)
-		GPIO.output(LEDPin, False)
-		sleep(2)
-		currentNum += 1
+        try:
+	        while currentNum < endPoint:
+	        	GPIO.output(LEDPin, True)
+	            	sleep(2)
+		        GPIO.output(LEDPin, False)
+		        sleep(2)
+		        currentNum += 1
+        finally:
+            GPIO.cleanup()
 
 
 if __name__ == '__main__':
