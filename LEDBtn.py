@@ -6,9 +6,18 @@ from time import sleep
 #configure mode for chosen pin values
 GPIO.setmode(GPIO.BCM)
 
-def main():
+#a var to keep track of current number
+currentNum = 0
+#a var to monitor the endpoint
+endPoint = 4
+#a note of which GPIO pin belongs to the LED
+LEDPin = 22
 
-    print("python main function")
+def main():
+	GPIO.setup(LEDPin, GPIO.OUT)
+	while currentNum < endPoint:
+
+	sleep()
 
 
 if __name__ == '__main__':
