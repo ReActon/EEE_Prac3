@@ -21,17 +21,17 @@ def main():
     GPIO.setup(LEDPin, GPIO.OUT)
     GPIO.setup(buttonPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-    buttonPress = False
+    buttonPressed = True
     ledState = False
     try:	    
         while currentNum < endPoint:
             print("Press the button")
-            buttonPress = GPIO.input(buttonPin)
-            if buttonPress == True and ledState == False:
+            buttonPressed = GPIO.input(buttonPin)
+            if buttonPressed == False and ledState == False:
                 GPIO.output(LEDPin, True)
                 ledState = True
                 sleep(3)
-            elif buttonPress == True and ledState == True:
+            elif buttonPressed == False and ledState == True:
                 GPIO.output(LEDPin, False)
                 ledState = False
                 currentNum += 1
