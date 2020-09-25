@@ -16,8 +16,11 @@ LEDPin = 22
 def main():
 	GPIO.setup(LEDPin, GPIO.OUT)
 	while currentNum < endPoint:
-
-	sleep()
+		GPIO.output(LEDPin, True)
+		sleep(2)
+		GPIO.output(LEDPin, False)
+		sleep(2)
+		currentNum += 1
 
 
 if __name__ == '__main__':
